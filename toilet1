@@ -1,0 +1,140 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "🔒 Private Mega Noob Simulator 2 🔥💪",
+   LoadingTitle = "private gui",
+   LoadingSubtitle = "by kourimez",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Private"
+   },
+   Discord = {
+      Enabled = false,
+      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = false, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "Mega Noob Simulator 2 🔒",
+      Subtitle = "Key System",
+      Note = "hi this is private",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"kourimeztest1"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local MainTab = Window:CreateTab("🏝️ Main", 4483362458) -- Title, Image
+
+local MainSection = MainTab:CreateSection("🔥 Main")
+
+local Button = MainTab:CreateButton({
+   Name = "💪 AutoFarm",
+   Callback = function()
+   local args = {
+    [1] = nil
+}
+
+local gameService = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+local enemyHolder = workspace.Areas["Infinite Island"].EnemyHolder -- Modify this line to match the actual path to the parent object of the NPCs
+
+while true do
+    for _, npc in ipairs(enemyHolder:GetChildren()) do
+        args[1] = npc
+        gameService:WaitForChild("Attack"):FireServer(unpack(args))
+        wait(1) -- Add a delay between each attack if needed
+    end
+    wait(5) -- Add a delay between each iteration of the loop if needed
+end
+
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "🔄 AutoRebirth",
+   Callback = function()
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Events = ReplicatedStorage:WaitForChild("Events")
+local Rebirth = Events:WaitForChild("Rebirth")
+
+while true do
+    Rebirth:FireServer()
+    wait(1) -- Wait for 1 second before firing the event again
+end
+
+   end,
+})
+local Button = MainTab:CreateButton({
+   Name = "Autofarm2",
+   Callback = function()
+local args = {
+    [1] = nil
+}
+
+local gameService = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+local enemyHolder = workspace.Areas["AirshipExit"].EnemyHolder
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+    for _, npc in ipairs(enemyHolder:GetChildren()) do
+        args[1] = npc
+        gameService:WaitForChild("Attack"):FireServer(unpack(args))
+        wait(0.1)
+    end
+    wait(0.1) -- Add a delay between each iteration of the loop if needed
+end)
+   end,
+})
+
+local Button = MainTab:CreateButton({
+   Name = "Anti AFK",
+   Callback = function()
+wait(0.5)local ba=Instance.new("ScreenGui")
+local ca=Instance.new("TextLabel")local da=Instance.new("Frame")
+local _b=Instance.new("TextLabel")local ab=Instance.new("TextLabel")ba.Parent=game.CoreGui
+ba.ZIndexBehavior=Enum.ZIndexBehavior.Sibling;ca.Parent=ba;ca.Active=true
+ca.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ca.Draggable=true
+ca.Position=UDim2.new(0.698610067,0,0.098096624,0)ca.Size=UDim2.new(0,370,0,52)
+ca.Font=Enum.Font.SourceSansSemibold;ca.Text="Anti Afk"ca.TextColor3=Color3.new(0,1,1)
+ca.TextSize=22;da.Parent=ca
+da.BackgroundColor3=Color3.new(0.196078,0.196078,0.196078)da.Position=UDim2.new(0,0,1.0192306,0)
+da.Size=UDim2.new(0,370,0,107)_b.Parent=da
+_b.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)_b.Position=UDim2.new(0,0,0.800455689,0)
+_b.Size=UDim2.new(0,370,0,21)_b.Font=Enum.Font.Arial;_b.Text="Made by luca#5432"
+_b.TextColor3=Color3.new(0,1,1)_b.TextSize=20;ab.Parent=da
+ab.BackgroundColor3=Color3.new(0.176471,0.176471,0.176471)ab.Position=UDim2.new(0,0,0.158377,0)
+ab.Size=UDim2.new(0,370,0,44)ab.Font=Enum.Font.ArialBold;ab.Text="Status: Active"
+ab.TextColor3=Color3.new(0,1,1)ab.TextSize=20;local bb=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+bb:CaptureController()bb:ClickButton2(Vector2.new())
+ab.Text="Roblox tried kicking you buy I didnt let them!"wait(2)ab.Text="Status : Active"end)
+   end,
+})
+
+local Main2Tab = Window:CreateTab("Main2", 4483362458) -- Title, Image
+
+local Main2Section = Main2Tab:CreateSection("main2")
+
+local Button = Main2Tab:CreateButton({
+   Name = "Autofarm",
+   Callback = function()
+local args = {
+    [1] = nil
+}
+
+local gameService = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+local enemyHolder = workspace.Areas["AirshipEntrance"].EnemyHolder
+local RunService = game:GetService("RunService")
+
+RunService.Heartbeat:Connect(function()
+    for _, npc in ipairs(enemyHolder:GetChildren()) do
+        args[1] = npc
+        gameService:WaitForChild("Attack"):FireServer(unpack(args))
+        wait(0.1)
+    end
+    wait(0.1) -- Add a delay between each iteration of the loop if needed
+end)
+   end,
+})
